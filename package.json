@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "tests": "node lib/runNodeTest.js && node lib/runBabelMjsTest.js && node lib/runBabelJsTest.js && node lib/runWebpackMjsTest.js && node lib/runWebpackJsTest.js && node lib/runRollupTest.js && node lib/runEsbuildMjsTest.js && node lib/runEsbuildJsTest.js && node lib/runEsbuildMtsTest.js && node lib/runEsbuildTsTest.js && node --openssl-legacy-provider lib/runWebpack4JsTest.js && node --openssl-legacy-provider lib/runWebpack4MjsTest.js && node lib/mergeResults.js && yarn prettier --write README.md",
+    "tests": "node lib/runNodeTest.js && node lib/runBabelMjsTest.js && node lib/runBabelJsTest.js && node lib/runWebpackMjsTest.js && node lib/runWebpackJsTest.js && node lib/runWebpackMtsTest.js && node lib/runRollupTest.js && node lib/runEsbuildMjsTest.js && node lib/runEsbuildJsTest.js && node lib/runEsbuildMtsTest.js && node lib/runEsbuildTsTest.js && node --openssl-legacy-provider lib/runWebpack4JsTest.js && node --openssl-legacy-provider lib/runWebpack4MjsTest.js && node lib/mergeResults.js && yarn prettier --write README.md",
     "merge": "node lib/mergeResults.js && yarn prettier --write README.md"
   },
   "devDependencies": {
