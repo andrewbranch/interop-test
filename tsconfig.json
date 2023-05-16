@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "checkJs": true,
+    "noEmit": true,
+    "resolveJsonModule": true
+  }
+}
