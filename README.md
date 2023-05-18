@@ -296,6 +296,7 @@ Version: `webpack@5.83.1` `node@20.2.0`
 <!-- rollup results -->
 
 Version: `@rollup/plugin-commonjs@25.0.0` `rollup@3.22.0` `node@20.2.0`
+
 | rollup | `import x` | `import * as x` | `import()` | `x = require()` | `await import() === require()` | `import * as x; x === await import()` |
 | --- | --- | --- | --- | --- | --- | --- |
 | default-export | `{ default }` | `[Object: null prototype] { default: { default } }` | `[Object: null prototype] { default: { default } }` | `{ default }` | `false` | `true` |
@@ -320,6 +321,7 @@ Version: `@rollup/plugin-commonjs@25.0.0` `rollup@3.22.0` `node@20.2.0`
 | single-string-export | `'single'` | `[Object: null prototype] { default: 'single' }` | `[Object: null prototype] { default: 'single' }` | `'single'` | `false` | `true` |
 | tla-esModule | compilation error | compilation error | compilation error | syntax error | compilation error | compilation error |
 | tla-esModule-esm-reexport<br><br>tla-esm | compilation error | compilation error | compilation error | require(esm) not allowed | compilation error | compilation error |
+
 
 <!-- end -->
 
