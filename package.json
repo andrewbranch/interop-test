@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "tests": "node lib/runTests.js && node lib/mergeResults.js && yarn prettier --write README.md",
-    "merge": "node lib/mergeResults.js && yarn prettier --write README.md"
+    "tests": "node lib/runTests.js && node lib/writeResults.js && yarn prettier --write README.md",
+    "write": "node lib/writeResults.js && yarn prettier --write README.md"
   },
   "devDependencies": {
     "@types/node": "^20.1.5",
