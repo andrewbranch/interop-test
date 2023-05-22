@@ -3,10 +3,29 @@
 
 @import "{{ site.theme }}";
 
+html {
+  font-size: 12px;
+}
+
+body * {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #0f57a4;
+  font-weight: unset;
+}
+
+code {
+  font-size: inherit;
+}
+
 th,
 td {
   vertical-align: middle;
   text-align: center;
+  padding: 4px;
+  font-size: inherit;
 }
 
 th {
