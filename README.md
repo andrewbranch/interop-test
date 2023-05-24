@@ -15,7 +15,6 @@ This project is forked from [sokra/interop-test](https://github.com/sokra/intero
 
 - [Meta-analysis](#meta-analysis)
   - [Disabling `__esModule` interop from ESM](#disabling-__esmodule-interop-from-esm)
-- [List of exporting modules](#exporting-modules)
 - [Results by runtime](#results-by-runtime)
   - babel
     - [`.mjs`](#babel-mjs)
@@ -101,58 +100,6 @@ have the expected behavior for different kinds of files that should ideally be t
 | parcel             | ❌  | ❌        | ❓  | ❌        |
 | rollup             | ❌  | ❌        | ❌  | ❌        |
 | webpack            | ✅  | ✅        | ❌  | ❌        |
-
-## Exporting modules
-
-- `default-export-esModule.js`:
-  ```js
-  Object.defineProperty(exports, "__esModule", { value: true });
-  exports.default = "default";
-  ```
-- `default-export-esm.js`:
-  ```js
-  export default "default";
-  ```
-- `default-export-esm.mjs`:
-  ```js
-  export default "default";
-  ```
-- `default-export.js`:
-  ```js
-  exports.default = "default";
-  ```
-- `single-object-export.js`:
-  ```js
-  module.exports = {
-    named: "named",
-  };
-  ```
-- `single-object-with-default-export.js`:
-  ```js
-  module.exports = {
-    named: "named",
-    default: "default",
-  };
-  ```
-- `tla-esModule.js`:
-  ```js
-  Object.defineProperty(exports, "__esModule", { value: true });
-  await Promise.resolve();
-  exports.named = "named";
-  exports.default = "default";
-  ```
-- `tla-esm.js`:
-  ```js
-  await Promise.resolve();
-  export const named = "named";
-  export default "default";
-  ```
-- `tla-esm.mjs`:
-  ```js
-  await Promise.resolve();
-  export const named = "named";
-  export default "default";
-  ```
 
 ## Results by runtime
 
@@ -525,6 +472,10 @@ have the expected behavior for different kinds of files that should ideally be t
 
 ### default-export.js
 
+```js
+exports.default = "default";
+```
+
 | default-export.js                     | babel<br><br>rollup | esbuild<br><br>webpack | node (mjs, js-module) | node (js)        | parcel (mjs, js, js-module, ts, ts-module) | parcel (mts)     |
 | ------------------------------------- | ------------------- | ---------------------- | --------------------- | ---------------- | ------------------------------------------ | ---------------- |
 | `import x`                            | `{ default }` ✅    | `{ default }` ✅       | `{ default }` ✅      | syntax error 💎  | `{ default }` ✅                           | `{ default }` ✅ |
@@ -534,6 +485,11 @@ have the expected behavior for different kinds of files that should ideally be t
 | `import * as x; x === await import()` | `true` ✅           | `false` 💎             | `true` ✅             | syntax error 💎  | `true` ✅                                  | runtime error 💎 |
 
 ### default-export-esModule.js
+
+```js
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = "default";
+```
 
 | default-export-esModule.js            | babel<br><br>parcel (mjs, js, js-module, ts, ts-module)<br><br>webpack (js, mts, ts, ts-module) | esbuild (mjs, js-module, mts, ts-module)<br><br>webpack (mjs, js-module) | esbuild (js, ts)<br><br>rollup (ts) | node (mjs, js-module)          | node (js)                      | parcel (mts)     | rollup (mjs, js, js-module, mts, ts-module) |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------- | ------------------------------ | ------------------------------ | ---------------- | ------------------------------------------- |
@@ -545,6 +501,10 @@ have the expected behavior for different kinds of files that should ideally be t
 
 ### default-export-esm.js
 
+```js
+export default "default";
+```
+
 | default-export-esm.js                 | babel<br><br>node (js) | esbuild<br><br>rollup (js, js-module) | node (mjs, js-module) | parcel (mjs, js, js-module, ts, ts-module) | parcel (mts)     | rollup (mjs, mts, ts-module)<br><br>webpack (mjs, js-module) | rollup (ts)     | webpack (js, mts, ts, ts-module)              |
 | ------------------------------------- | ---------------------- | ------------------------------------- | --------------------- | ------------------------------------------ | ---------------- | ------------------------------------------------------------ | --------------- | --------------------------------------------- |
 | `import x`                            | syntax error 💎        | `'default'` ✅                        | syntax error 💎       | `'default'` ✅                             | `'default'` ✅   | `'default'` ✅                                               | syntax error 💎 | `'default'` ✅                                |
@@ -554,6 +514,10 @@ have the expected behavior for different kinds of files that should ideally be t
 | `import * as x; x === await import()` | syntax error 💎        | `true` ✅                             | syntax error 💎       | `true` ✅                                  | runtime error 💎 | `true` ✅                                                    | syntax error 💎 | `true` ✅                                     |
 
 ### default-export-esm.mjs
+
+```js
+export default "default";
+```
 
 | default-export-esm.mjs                | babel           | esbuild<br><br>rollup (js, js-module) | node (mjs, js-module) | node (js)                   | parcel (mjs, js, js-module, ts, ts-module) | parcel (mts)     | rollup (mjs, mts, ts-module)<br><br>webpack (mjs, js-module) | rollup (ts)                 | webpack (js, mts, ts, ts-module)              |
 | ------------------------------------- | --------------- | ------------------------------------- | --------------------- | --------------------------- | ------------------------------------------ | ---------------- | ------------------------------------------------------------ | --------------------------- | --------------------------------------------- |
@@ -565,6 +529,12 @@ have the expected behavior for different kinds of files that should ideally be t
 
 ### single-object-export.js
 
+```js
+module.exports = {
+  named: "named",
+};
+```
+
 | single-object-export.js               | babel<br><br>rollup (mjs, js, js-module, mts, ts-module) | esbuild<br><br>rollup (ts)<br><br>webpack | node (mjs, js-module) | node (js)       | parcel (mjs, js, js-module, ts, ts-module) | parcel (mts)     |
 | ------------------------------------- | -------------------------------------------------------- | ----------------------------------------- | --------------------- | --------------- | ------------------------------------------ | ---------------- |
 | `import x`                            | `{ named }` ✅                                           | `{ named }` ✅                            | `{ named }` ✅        | syntax error 💎 | `{ named }` ✅                             | `{ named }` ✅   |
@@ -574,6 +544,13 @@ have the expected behavior for different kinds of files that should ideally be t
 | `import * as x; x === await import()` | `true` ✅                                                | `false` 💎                                | `true` ✅             | syntax error 💎 | `true` ✅                                  | runtime error 💎 |
 
 ### single-object-with-default-export.js
+
+```js
+module.exports = {
+  named: "named",
+  default: "default",
+};
+```
 
 | single-object-with-default-export.js  | babel<br><br>rollup (mjs, js, js-module, mts, ts-module) | esbuild<br><br>rollup (ts)<br><br>webpack | node (mjs, js-module)   | node (js)               | parcel (mjs, js, js-module, ts, ts-module) | parcel (mts)            |
 | ------------------------------------- | -------------------------------------------------------- | ----------------------------------------- | ----------------------- | ----------------------- | ------------------------------------------ | ----------------------- |
@@ -585,6 +562,13 @@ have the expected behavior for different kinds of files that should ideally be t
 
 ### tla-esModule.js
 
+```js
+Object.defineProperty(exports, "__esModule", { value: true });
+await Promise.resolve();
+exports.named = "named";
+exports.default = "default";
+```
+
 | tla-esModule.js                       | babel<br><br>node (js)<br><br>parcel (mjs, js, js-module, ts, ts-module) | esbuild<br><br>rollup (js, js-module)<br><br>webpack (js, mts, ts, ts-module) | node (mjs, js-module) | parcel (mts)     | rollup (mjs, mts, ts-module)<br><br>webpack (mjs, js-module) | rollup (ts)          |
 | ------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------- | --------------------- | ---------------- | ------------------------------------------------------------ | -------------------- |
 | `import x`                            | syntax error                                                             | compilation error ✅                                                          | syntax error          | syntax error     | compilation error ✅                                         | syntax error         |
@@ -595,6 +579,12 @@ have the expected behavior for different kinds of files that should ideally be t
 
 ### tla-esm.js
 
+```js
+await Promise.resolve();
+export const named = "named";
+export default "default";
+```
+
 | tla-esm.js                            | babel<br><br>node (js)<br><br>parcel (mjs, js, js-module, ts, ts-module) | esbuild<br><br>rollup (js, js-module) | node (mjs, js-module) | parcel (mts)     | rollup (mjs, mts, ts-module) | rollup (ts)          | webpack (mjs, js-module) | webpack (js, mts, ts, ts-module)                                                                                                                                                                                                     |
 | ------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------- | --------------------- | ---------------- | ---------------------------- | -------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `import x`                            | syntax error                                                             | compilation error 💎                  | syntax error          | syntax error     | compilation error 💎         | syntax error         | `'default'` 💎           | `'default'` 💎                                                                                                                                                                                                                       |
@@ -604,6 +594,12 @@ have the expected behavior for different kinds of files that should ideally be t
 | `import * as x; x === await import()` | syntax error                                                             | compilation error 💎                  | syntax error          | syntax error     | compilation error 💎         | compilation error 💎 | `true` 💎                | `true` 💎                                                                                                                                                                                                                            |
 
 ### tla-esm.mjs
+
+```js
+await Promise.resolve();
+export const named = "named";
+export default "default";
+```
 
 | tla-esm.mjs                           | babel<br><br>parcel (mjs, js, js-module, ts, ts-module) | esbuild<br><br>rollup (js, js-module) | node (mjs, js-module) | node (js)                   | parcel (mts)     | rollup (mjs, mts, ts-module) | rollup (ts)                 | webpack (mjs, js-module)    | webpack (js, mts, ts, ts-module)                                                                                                                                                                                                     |
 | ------------------------------------- | ------------------------------------------------------- | ------------------------------------- | --------------------- | --------------------------- | ---------------- | ---------------------------- | --------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
