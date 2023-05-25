@@ -10,6 +10,7 @@ This project is forked from [sokra/interop-test](https://github.com/sokra/intero
 - Every test case is tested against every importing file variant
 - Every runtime result is diffed against every other
 - Added meta-analysis to answer high-level questions
+- Added Bun, Parcel
 
 ## Table of Contents
 
