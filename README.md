@@ -107,17 +107,15 @@ are ordered as follows:
    `.mts`, or `"type": "module"`-scoped `.js` and `.ts` files
 
 The following table summarizes data that can be found in the [default-export-esModule.js](#default-export-esmodulejs)
-table, and grades each bundler’s behavior against these priorities. Legend:
+table, and grades each bundler’s behavior against these priorities.
 
-| Symbol  | Meaning                                                                                  |
+| Legend  |                                                                                          |
 | ------- | ---------------------------------------------------------------------------------------- |
 | ✅ / ❌ | Satisfies / violates priority (3): Default synthesis in Node ESM files                   |
 | 👍 / 👎 | Satisfies / violates priority (4): `__esModule` disables synthesis in non-Node-ESM files |
 | ❓      | An error or totally unexpected behavior prohibits analysis                               |
 | 💙      | Satisfies priority (1): TS consistency                                                   |
 | 🌟      | Perfect score                                                                            |
-
----
 
 |         | mjs                | js-module          | mts                | ts-module          | js                 | ts                 |       |
 | ------- | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ----- |
