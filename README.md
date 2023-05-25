@@ -117,7 +117,7 @@ table, and grades each bundler’s behavior against these priorities.
 | 💙      | Satisfies priority (1): TS consistency                                                   |
 | 🌟      | Perfect score                                                                            |
 
-|         | mjs                | js-module          | mts                | ts-module          | js                 | ts                 |       |
+|         | mjs                | js-module          | mts                | ts-module          | js                 | ts                 | Grade |
 | ------- | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ----- |
 | bun     | ❓                 | ❓                 | ❓                 | ❓                 | ❓                 | ❓                 |       |
 | webpack | ✅ Synthesized     | ✅ Synthesized     | ❌ Not synthesized | ❌ Not synthesized | 👍 Not synthesized | 👍 Not synthesized |       |
