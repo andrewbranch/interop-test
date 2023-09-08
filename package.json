@@ -10,6 +10,6 @@
   "devDependencies": {
     "@types/node": "^20.1.5",
     "prettier": "^2.1.2",
-    "vite": "^4.4.7"
+    "vite": "^4.4.9"
   }
 }

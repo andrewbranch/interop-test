@@ -160,10 +160,10 @@ picocolors@^1.0.0:
   resolved "https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz"
   integrity sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==
 
-postcss@^8.4.26:
-  version "8.4.27"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.27.tgz#234d7e4b72e34ba5a92c29636734349e0d9c3057"
-  integrity sha512-gY/ACJtJPSmUFPDCHtX78+01fHa64FaU4zaaWfuh1MhGJISufJAH4cun6k/8fwsHYeK4UQmENQK+tRLCFJE8JQ==
+postcss@^8.4.27:
+  version "8.4.29"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.29.tgz#33bc121cf3b3688d4ddef50be869b2a54185a1dd"
+  integrity sha512-cbI+jaqIeu/VGqXEarWkRCCffhjgXc0qjBtXpqJhTBohMUjUQnbBr0xqX3vEKudc4iviTewcJo5ajcec5+wdJw==
   dependencies:
     nanoid "^3.3.6"
     picocolors "^1.0.0"
@@ -174,10 +174,10 @@ prettier@^2.1.2:
   resolved "https://registry.npmjs.org/prettier/-/prettier-2.1.2.tgz"
   integrity sha512-16c7K+x4qVlJg9rEbXl7HEGmQyZlG4R9AgP+oHKRMsMsuk8s+ATStlf1NpDqyBI1HpVyfjLOeMhH2LvuNvV5Vg==
 
-rollup@^3.25.2:
-  version "3.26.3"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-3.26.3.tgz#bbc8818cadd0aebca348dbb3d68d296d220967b8"
-  integrity sha512-7Tin0C8l86TkpcMtXvQu6saWH93nhG3dGQ1/+l5V2TDMceTxO7kDiK6GzbfLWNNxqJXm591PcEZUozZm51ogwQ==
+rollup@^3.27.1:
+  version "3.29.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-3.29.0.tgz#1b40e64818afc979c7e5bef93de675829288986b"
+  integrity sha512-nszM8DINnx1vSS+TpbWKMkxem0CDWk3cSit/WWCBVs9/JZ1I/XLwOsiUglYuYReaeWWSsW9kge5zE5NZtf/a4w==
   optionalDependencies:
     fsevents "~2.3.2"
 
@@ -191,13 +191,13 @@ vite-plugin-externalize-deps@^0.7.0:
   resolved "https://registry.yarnpkg.com/vite-plugin-externalize-deps/-/vite-plugin-externalize-deps-0.7.0.tgz#26da8920c1802327abae2ac9b041c2e914e8651b"
   integrity sha512-do2gPrR79Tm8UKcqsw3RTAtN4YO8GkVRBckWdJWINZ3Qdp3KN9S1oyUZxKszTB/iyg4zdOUweLOeBI8t86QVow==
 
-vite@^4.4.7:
-  version "4.4.7"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-4.4.7.tgz#71b8a37abaf8d50561aca084dbb77fa342824154"
-  integrity sha512-6pYf9QJ1mHylfVh39HpuSfMPojPSKVxZvnclX1K1FyZ1PXDOcLBibdq5t1qxJSnL63ca8Wf4zts6mD8u8oc9Fw==
+vite@^4.4.9:
+  version "4.4.9"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-4.4.9.tgz#1402423f1a2f8d66fd8d15e351127c7236d29d3d"
+  integrity sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==
   dependencies:
     esbuild "^0.18.10"
-    postcss "^8.4.26"
-    rollup "^3.25.2"
+    postcss "^8.4.27"
+    rollup "^3.27.1"
   optionalDependencies:
     fsevents "~2.3.2"
